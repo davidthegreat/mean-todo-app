@@ -24,7 +24,12 @@ module.exports ={
 		query: {
 			presets: ['es2015']
 		}
+	},
+	{
+		test: /\.html$/,
+		loader: 'raw'
 	}
+
 	],
 	plugins: [
 		new webpack.HotModuleReplacementPlugin(),
