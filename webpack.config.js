@@ -14,23 +14,33 @@ module.exports ={
 	},
 	resolve: {
 		modulesDirectories: ['node_modules', 'src'],
-		extension: ['','.js']
+		extension: ['','.js','.scss']
 	},
-	module: [
-	{
-		test: /\.js$/,
-		exclude: /node_modules/,
-		loader: 'babel',
-		query: {
-			presets: ['es2015']
+	module: {
+		loaders: [
+		{
+			test: /\.js$/,
+			exclude: /node_modules/,
+			loader: 'babel',
+			query: {
+				presets: ['es2015']
+			}
+		},
+		{
+			test: /\.html$/,
+			loader: 'raw'
+		},
+		{
+			test: /\.scss$/,
+			loaders: [
+				'style',
+				'css',
+				'autoprefixer?browsers=last 3 versions',
+				'sass?outputStyle=expanded'
+			]
 		}
+		]
 	},
-	{
-		test: /\.html$/,
-		loader: 'raw'
-	}
-
-	],
 	plugins: [
 		new webpack.HotModuleReplacementPlugin(),
 		new webpack.NoErrorsPlugin()
