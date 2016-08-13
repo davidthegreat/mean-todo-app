@@ -4,7 +4,7 @@ import	uiRouter from 'angular-ui-router';
 const app = angular.module('app', [uiRouter]);
 
 app.config(($stateProvider, $urlRouterProvider, $locationProvider) =>{
-	$urlRouterProvider.other('/');
+	$urlRouterProvider.otherwise('/');
 
 	$stateProvider
 		.state('todos', {
