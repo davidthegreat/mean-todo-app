@@ -18,6 +18,11 @@ export default function($scope) {
 		todo.isCompleted = !todo.isCompleted;
 	};
 
+	$scope.createTask = () =>{
+		params.createHasInput = false;
+		$scope.createTaskInput = '';
+	}
+
 	$scope.$watch('createTaskInput', val =>{
 		if (!val && params.createHasInput){
 			$scope.todos.pop();
