@@ -6,11 +6,14 @@ export default function($scope) {
 	$scope.todos=[
 	{
 		task: 'do dishes',
-		isCompleted: true
+		isCompleted: false,
+		isEditing: false
+
 	},
 	{
 		task: 'Walk the dog',
-		isCompleted: true
+		isCompleted: false,
+		isEditing: false
 	}
 	];
 
@@ -18,10 +21,14 @@ export default function($scope) {
 		todo.isCompleted = !todo.isCompleted;
 	};
 
+	$scope.onEditClick = todo => {
+		todo.isEditing = true;
+	};
+
 	$scope.createTask = () =>{
 		params.createHasInput = false;
 		$scope.createTaskInput = '';
-	}
+	};
 
 	$scope.$watch('createTaskInput', val =>{
 		if (!val && params.createHasInput){
