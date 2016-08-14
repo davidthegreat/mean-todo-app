@@ -1,3 +1,5 @@
+import _ from 'lodash';
+
 export default function($scope) {
 	let params = {
 		createHasInput: false
