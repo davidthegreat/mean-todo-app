@@ -1,3 +1,4 @@
+import _ from 'lodash'
 import angular from 'angular'
 
 const todoFactory = angular.module('app.todoFactory', [])
@@ -13,9 +14,14 @@ const todoFactory = angular.module('app.todoFactory', [])
 		todo.isEditing = false;
 	}
 
+	function deleteTask($scope, todoToDelete){
+		_.remove($scope.todos, todo => todo.task === todoToDelete.task)	
+	}
+
 	return{
 		createTask,
-		updateTask
+		updateTask,
+		deleteTask
 	};
 });
 
