@@ -8,8 +8,14 @@ const todoFactory = angular.module('app.todoFactory', [])
 		$scope.createTaskInput = '';
 	}
 
+	function updateTask(todo){
+		todo.task = todo.updatedTask;
+		todo.isEditing = false;
+	}
+
 	return{
-		createTask
+		createTask,
+		updateTask
 	};
 });
 
