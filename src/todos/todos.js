@@ -38,15 +38,5 @@ console.log(todoFactory.createTask);
 
 	$scope.deleteTask = _.partial(todoFactory.deleteTask, $scope);
 
-	$scope.$watch('createTaskInput', val =>{
-		if (!val && params.createHasInput){
-			$scope.todos.pop();
-			params.createHasInput = false;
-		}else if (val && !params.createHasInput) {
-			$scope.todos.push({ task: val, isCompleted: false });
-			params.createHasInput = true;
-		} else if (val && params.createHasInput) {
-			$scope.todos[$scope.todos.length - 1].task = val;
-		}
-	});
+	$scope.$watch('createTaskInput', _.partial(todoFactory.watchCreateTaskInput, params,$scope));
 }
