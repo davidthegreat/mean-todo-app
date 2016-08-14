@@ -25,6 +25,10 @@ export default function($scope) {
 		todo.isEditing = true;
 	};
 
+	$scope.onCancelClick = todo =>{
+		todo.isEditing =false;
+	};
+
 	$scope.createTask = () =>{
 		params.createHasInput = false;
 		$scope.createTaskInput = '';
