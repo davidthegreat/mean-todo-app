@@ -21,7 +21,7 @@
 					ng-checked="todo.isCompleted" 
 					ng-click="onCompletedClick(todo)" />
 			</td>
-			
+
 			<td>
 				<span ng-if="!todo.isEditing"
 			 		class="todos__task"
@@ -31,8 +31,9 @@
 
 			 	<form ng-submit="updateTask(todo)">
 			 		<input ng-if="todo.isEditing" 
-			 		class="form-control todos__update-input" ng-value="todo.task" 
-			 		ng-model="todo.updatedTask"/>
+			 			class="form-control todos__update-input"
+			 			ng-value="todo.task" 
+			 			ng-model="todo.updatedTask"/>
 			 	</form>
 			 </td>
 			<td>
@@ -42,7 +43,8 @@
 					Edit
 				</button>
 				<button ng-if="!todo.isEditing" 
-					class="btn btn-danger">
+					class="btn btn-danger"
+					ng-click="deleteTask(todo)">
 					Delete
 				</button>
 

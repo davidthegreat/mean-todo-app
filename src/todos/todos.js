@@ -42,6 +42,10 @@ export default function($scope) {
 		todo.isEditing = false;	
 	};
 
+	$scope.deleteTask = todoToDelete =>{
+		_.remove($scope.todos, todo => todo.task === todoToDelete.task)
+	};
+
 	$scope.$watch('createTaskInput', val =>{
 		if (!val && params.createHasInput){
 			$scope.todos.pop();
