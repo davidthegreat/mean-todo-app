@@ -1,10 +1,10 @@
 import _ from 'lodash';
 
-export default function($scope) {
+export default function($scope, todoFactory) {
 	let params = {
 		createHasInput: false
 	};
-
+console.log(todoFactory.createTask);
 	$scope.todos=[
 	{
 		task: 'do dishes',
@@ -32,10 +32,7 @@ export default function($scope) {
 		todo.isEditing =false;
 	}; 
 
-	$scope.createTask = () =>{
-		params.createHasInput = false;
-		$scope.createTaskInput = '';
-	};
+	$scope.createTask= _.partial(todoFactory.createTask, $scope, params);
 
 	$scope.updateTask = todo =>{
 		todo.task = todo.updatedTask;
@@ -43,7 +40,7 @@ export default function($scope) {
 	};
 
 	$scope.deleteTask = todoToDelete =>{
-		_.remove($scope.todos, todo => todo.task === todoToDelete.task)
+		_.remove($scope.todos, todo => todo.task === todoToDelete.taska)
 	};
 
 	$scope.$watch('createTaskInput', val =>{
