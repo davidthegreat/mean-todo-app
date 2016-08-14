@@ -34,13 +34,10 @@ console.log(todoFactory.createTask);
 
 	$scope.createTask= _.partial(todoFactory.createTask, $scope, params);
 
-	$scope.updateTask = todo =>{
-		todo.task = todo.updatedTask;
-		todo.isEditing = false;	
-	};
+	$scope.updateTask = _.partial(todoFactory.updateTask);
 
 	$scope.deleteTask = todoToDelete =>{
-		_.remove($scope.todos, todo => todo.task === todoToDelete.taska)
+		_.remove($scope.todos, todo => todo.task === todoToDelete.task)
 	};
 
 	$scope.$watch('createTaskInput', val =>{
